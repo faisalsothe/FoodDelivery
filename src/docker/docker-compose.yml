@@ -1,12 +1,11 @@
-services:
+version: '3'
 
-  db:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydb
+services:
+  nextjs:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
     ports:
-      - 5432:5432
+      - "3000:3000"
+    
 
