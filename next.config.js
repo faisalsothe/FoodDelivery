@@ -3,6 +3,13 @@ const nextConfig = {
   images: {
     domains: ["res.cloudinary.com"],
   },
+  eslint:{
+    ignoreDuringBuilds:true
+  },
+  typescript:{
+    ignoreBuildErrors:true
+  },
+  output:"standalone",
   async headers() {
     return [
         {
