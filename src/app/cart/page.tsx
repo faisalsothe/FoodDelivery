@@ -73,7 +73,7 @@ const CartPage = () => {
         ))}
       </div>
       {/* PAYMENT CONTAINER */}
-      <div className="mt-6 mb-8 h-1/2 p-4 pt-6 md:pt-10 bg-fuchsia-50 flex flex-col gap-4 justify-center lg:h-full lg:w-3/3 2xl:w-1/2 lg:p-20 lg:text-md xl:p-40 2xl:text-xl 2xl:gap-4">
+      <div className="mt-6 mb-4 h-1/2 p-4 pt-6 md:pt-10 bg-fuchsia-50 flex flex-col gap-4 justify-center lg:h-full lg:w-3/3 2xl:w-1/2 lg:p-20 lg:text-md xl:p-40 2xl:text-xl 2xl:gap-4">
         <div className="flex justify-between">
           <span className="mr-5">Subtotal ({totalItems} items)&nbsp;</span>
           <span className="font-bold">₹{totalPrice}</span>
