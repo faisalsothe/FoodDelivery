@@ -1,6 +1,5 @@
 "use client";
-
-import { useCartStore } from "@/utils/store";
+import { useCartStore } from "@/../../src/utils/store";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
 import ConfettiExplosion from "react-confetti-explosion";
@@ -29,16 +28,13 @@ const SuccessPage = () => {
   }, [payment_intent, router,emptyCart]);
 
   return (
-    <>
       <div className="min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-15rem)] flex items-center justify-center text-center text-2xl text-green-700">
         <p className="max-w-[600px]">
           Payment successful. You are being redirected to the orders page.
           Please do not close the page.
         </p>
-      <ConfettiExplosion className="absolute m-auto"
-      />
+      <ConfettiExplosion className="absolute m-auto"/>
       </div>
-    </>
   );
 };
 
