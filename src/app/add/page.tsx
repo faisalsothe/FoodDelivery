@@ -203,7 +203,6 @@ return (
             onClick={(e) => {
               e.preventDefault();
               setOptions((prev) => [...prev, option])
-              
             }}
           >
             Add Option
