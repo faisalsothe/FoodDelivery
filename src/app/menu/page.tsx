@@ -3,38 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 const getData = async ()=>{
-  if (process.env.MOCK_API) {
-    // Mock the API response
-    const mockData =[
-      {
-          id: 1,
-          slug: "pastas",
-          title: "Italian Pastas",
-          desc: "Savor the taste of perfection with our exquisite Italian handmade pasta menu.",
-          img: "/temporary/m1.png",
-          color: "white",
-        },
-        {
-          id: 2,
-          slug: "burgers",
-          title: "Juicy Burgers",
-          desc: "Burger Bliss: Juicy patties, bold flavors, and gourmet toppings galore.",
-          img: "/temporary/m2.png",
-          color: "black",
-        },
-        {
-          id: 3,
-          slug: "pizzas",
-          title: "Cheesy Pizzas",
-          desc: "Pizza Paradise: Irresistible slices, mouthwatering toppings, and cheesy perfection.",
-          img: "/temporary/m3.png",
-          color: "white",
-        },
-      ]
-    // Use the mock data instead of making a real API request
-    return mockData;
-  } 
-  else {
   const res = await fetch("http://localhost:3000/api/categories",{
     cache:"no-store"
   })
@@ -45,7 +13,6 @@ const getData = async ()=>{
   }
 
   return res.json()
-}
 }
 
 const MenuPage = async () => {
