@@ -40,7 +40,7 @@ const Menu = () => {
             href="/orders"
             onClick={() => setOpen(false)}>
             Orders
-            <span className="ml-4 cursor-pointer" onClick={() => signOut()}>Logout</span>
+            <span onClick={() => signOut()}>Logout</span>
           </Link>
           ):(<Link
             href="/login"
