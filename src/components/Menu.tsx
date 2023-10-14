@@ -40,7 +40,9 @@ const Menu = () => {
             href="/orders"
             onClick={() => setOpen(false)}>
             Orders
-            <Link className="mt-4" href="/" onClick={() => signOut()}>Logout</Link>
+            <div className="mt-4">
+            <Link href="/" onClick={() => signOut()}>Logout</Link>
+            </div>
           </Link>
           ):(<Link
             href="/login"
