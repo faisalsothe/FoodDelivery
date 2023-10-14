@@ -29,7 +29,7 @@ const ContactPage = () => {
                 type="text"
                 id="name"
                 name="name"
-                className="w-max appearance-none border rounded md:w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 placeholder="Your Name"
                 required
                 autoComplete="on"
@@ -41,7 +41,7 @@ const ContactPage = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="w-max appearance-none border rounded md:w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 placeholder="Your Email"
                 required
                 autoComplete="on"
@@ -53,7 +53,7 @@ const ContactPage = () => {
                 id="description"
                 name="description"
                 rows={4}
-                className="w-max appearance-none border rounded md:w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 placeholder="Your Message"
                 required
                 autoComplete="on"
