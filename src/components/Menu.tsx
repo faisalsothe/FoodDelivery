@@ -39,7 +39,7 @@ const Menu = () => {
             <Link
             href="/orders"
             onClick={() => setOpen(false)}>
-            Orders
+            Orders<br/>
             <span onClick={() => signOut()}>Logout</span>
           </Link>
           ):(<Link
