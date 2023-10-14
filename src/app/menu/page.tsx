@@ -2,22 +2,22 @@ import { MenuType } from "@/types/types";
 import Link from "next/link";
 import React from "react";
 
-const getData = async ()=>{
-  const res = await fetch("https://foodyfaisal.evils.in/api/categories",{
-    cache:"no-store"
-  })
+const getData = ()=>{
+  const res=[{"slug":"",id:"",color:"",title:"",desc:"",img:""},{"slug":"",id:"",color:"",title:"",desc:"",img:""},{"slug":"",id:"",color:"",title:"",desc:"",img:""}];
+  // const res = await fetch("https://foodyfaisal.evils.in/api/categories",{
+  //   cache:"no-store"
+  // })
 
-  if(!res.ok){
-    throw new Error("Failed!");
-    
-  }
+  // if(!res.ok){
+  //   throw new Error("Failed!");
+  // }
 
-  return res.json()
+  return res;
 }
 
 const MenuPage = async () => {
 
-  const menu:MenuType = await getData()
+  const menu = await getData()
   return (
     <div className="p-4 lg:px-20 xl:px-40 h-full flex flex-col md:flex-row items-center justify-center">
       {menu.map((category) => (
