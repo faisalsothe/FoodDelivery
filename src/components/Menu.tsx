@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CartIcon from "./CartIcon";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const links = [
   { id: 1, title: "Homepage", url: "/" },
@@ -35,12 +35,19 @@ const Menu = () => {
               {item.title}
             </Link>
           ))}
-          <Link
-            href={user ? "/orders" : "login"}
-            onClick={() => setOpen(false)}
-          >
-            {user ? "Orders" : "Login"}
+          {user ? (
+            <Link
+            href="/orders"
+            onClick={() => setOpen(false)}>
+            Orders
+            <span className="ml-4 cursor-pointer" onClick={() => signOut()}>Logout</span>
           </Link>
+          ):(<Link
+            href="/login"
+            onClick={() => setOpen(false)}>
+            Login
+          </Link>
+          )}
           <Link href="/cart" onClick={() => setOpen(false)}>
             <CartIcon />
           </Link>
@@ -51,3 +58,14 @@ const Menu = () => {
 };
 
 export default Menu;
+
+<div>
+      {status === "authenticated" ? (
+        <div>
+          <Link href="/orders">Orders</Link>
+          <span className="ml-4 cursor-pointer" onClick={() => signOut()}>Logout</span>
+        </div>
+      ) : (
+        <Link href="/login">Login</Link>
+      )}
+    </div>
