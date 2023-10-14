@@ -71,37 +71,39 @@ const AddPage = () => {
     setFile(item);
   };
 
-  const upload = async () => {
+  const upload = () => {
       
       const data = new FormData();
       data.append("file", file!);
       data.append("upload_preset", "faisal");
-      const res = await fetch("https://api.cloudinary.com/v1_1/dheqwlugx/image/upload",
-      {
-        method: "POST",
-        body: data,
-      }
-      );
-      const resData = await res.json();
-      return resData.url;
+      const res =
+        {
+          id: 3,
+          slug: "pizzas",
+          title: "Cheesy Pizzas",
+          desc: "Pizza Paradise: Irresistible slices, mouthwatering toppings, and cheesy perfection.",
+          img: "/temporary/m3.png",
+          color: "white",
+        }
+      const resData = res;
+      return resData;
    }
 
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try 
     {
-      const url = await upload();
-      const res = await fetch
-      ("http://localhost:3000/api/products", {
-        method: "POST",
-        body: JSON.stringify({
-          img: url,
-          ...inputs,
-          options,
-        }),
-      });
-      const data = await res.json();
+      const res =
+        {
+          id: 3,
+          slug: "pizzas",
+          title: "Cheesy Pizzas",
+          desc: "Pizza Paradise: Irresistible slices, mouthwatering toppings, and cheesy perfection.",
+          img: "/temporary/m3.png",
+          color: "white",
+        }
+      const data = res;
       Swal.fire({
         icon: 'success',
         title: 'Success',

@@ -7,8 +7,7 @@ const nextConfig = {
     ignoreDuringBuilds:true
   },
   typescript:{
-    ignoreBuildErrors:true,
-    ignoreDuringBuilds:true
+    ignoreBuildErrors:true
   },
   output:"standalone",
   env: {

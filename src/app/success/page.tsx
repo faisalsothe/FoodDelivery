@@ -13,11 +13,8 @@ const SuccessPage = () => {
 
   useEffect(() => {
     emptyCart();
-    const makeRequest = async () => {
+    const makeRequest = () => {
       try {
-        await fetch(`http://localhost:3000/api/confirm/${payment_intent}`, {
-          method: "PUT"
-        });
         setTimeout(() => {
           router.push("/orders");
         }, 2000);

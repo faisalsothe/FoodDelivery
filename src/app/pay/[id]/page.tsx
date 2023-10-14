@@ -3,7 +3,6 @@
 import CheckoutForm from "@/components/CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { StripeElementsOptions, loadStripe } from "@stripe/stripe-js";
-import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 const stripePromise = loadStripe(
@@ -18,13 +17,16 @@ const PayPage = ({ params }: { params: { id: string } }) => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:3000/api/create-intent/${id}`,
-          {
-            method: "POST",
-          }
-        );
-        const data = await res.json();
+        const res =
+        {
+          id: 3,
+          clientSecret: "pizzas",
+          title: "Cheesy Pizzas",
+          desc: "Pizza Paradise: Irresistible slices, mouthwatering toppings, and cheesy perfection.",
+          img: "/temporary/m3.png",
+          color: "white",
+        }
+        const data = await res;
         setClientSecret(data.clientSecret);
       } catch (err) {
         console.log(err);

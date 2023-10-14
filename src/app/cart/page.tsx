@@ -25,17 +25,16 @@ const CartPage = () => {
 
     else {
       try {
-        const res = await fetch("http://localhost:3000/api/orders", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            price: totalPrice,
-            products,
-            status: "Being Prepared.",
-            userEmail: session.user.email,
-          }),
-        });
-        const data =await res.json()
+        const res =
+        {
+          id: 3,
+          slug: "pizzas",
+          title: "Cheesy Pizzas",
+          desc: "Pizza Paradise: Irresistible slices, mouthwatering toppings, and cheesy perfection.",
+          img: "/temporary/m3.png",
+          color: "white",
+        }
+        const data = res
         router.push(`/pay/${data.id}`);
       } 
       catch (err) {
