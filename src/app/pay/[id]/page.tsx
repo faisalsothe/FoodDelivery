@@ -11,6 +11,7 @@ const stripePromise = loadStripe(
 
 const PayPage = ({ params }: { params: { id: string } }) => {
   const [clientSecret, setClientSecret] = useState("");
+  const [loading, setLoading] = useState(true); // Initialize loading state to true
 
   const { id } = params;
 
@@ -25,24 +26,28 @@ const PayPage = ({ params }: { params: { id: string } }) => {
         );
         const data = await res.json();
         setClientSecret(data.clientSecret);
+        setLoading(false); // Set loading to false when data is loaded
       } catch (err) {
         console.log(err);
+        setLoading(false); // Set loading to false in case of an error
       }
     };
 
     makeRequest();
   }, [id]);
 
-  const options:StripeElementsOptions={
+  const options: StripeElementsOptions = {
     clientSecret,
-    appearance:{
-      theme:"stripe"
-    }
-  }
+    appearance: {
+      theme: "stripe",
+    },
+  };
 
   return (
     <div>
-      {clientSecret && (
+      {loading ? ( // Check the loading state
+        <p>Loading...</p>
+      ) : (
         <Elements options={options} key={clientSecret} stripe={stripePromise}>
           <CheckoutForm />
         </Elements>
