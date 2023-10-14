@@ -4,7 +4,7 @@ import React from 'react'
 import Countdown from 'react-countdown'
 import dynamic from "next/dynamic";
 
-const endingDate = new Date("2023-10-15")
+const endingDate = new Date("2023-10-20")
 
 const CountDown = () => {
 
