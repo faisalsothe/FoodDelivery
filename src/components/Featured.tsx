@@ -1,25 +1,21 @@
 import { ProductType } from "@/types/types";
 import Image from "next/image";
 
-const getData = ()=>{
-  const res=[{id:"",img:"",title:"",desc:"",price:""},{id:"",img:"",title:"",desc:"",price:""}];
-  // const res = await fetch("https://foodyfaisal.evils.in/api/products",{
-  //   cache:"no-store"
-  // })
+const getData = async ()=>{
+  const res = await fetch("https://foodyfaisal.evils.in/api/products",{
+    cache:"no-store"
+  })
 
-  // if(!res.ok){
-  //   throw new Error("Failed!");
-  // }
+  if(!res.ok){
+    throw new Error("Failed!");
+  }
 
-  // return res.json()
-  return res;
+  return res.json()
 }
 
 
-const Featured = () => {
-  // const featuredProducts:ProductType[] = await getData();
-  const featuredProducts = getData();
-
+const Featured = async () => {
+  const featuredProducts:ProductType[] = await getData();
   return (
     <div className="w-screen overflow-x-scroll text-red-500">
       {/* WRAPPER */}
