@@ -10,16 +10,15 @@ const CartPage = () => {
   const { data: session } = useSession();
   const router = useRouter();
 
-  if(!session){
-    router.push("/login");
-  }
-  
   useEffect(() => {
     useCartStore.persist.rehydrate();
   }, []);
 
+  if (!router) {
+    return;
+  }
+  
   const handleCheckout = async () => {
-
     if(!session){
       router.push("/login");
     }
