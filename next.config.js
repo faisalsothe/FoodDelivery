@@ -10,6 +10,9 @@ const nextConfig = {
     ignoreBuildErrors:true
   },
   output:"standalone",
+  env: {
+    MOCK_API: process.env.MOCK_API || false,
+  },
   async headers() {
     return [
         {
