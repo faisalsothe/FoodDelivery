@@ -13,8 +13,11 @@ const SuccessPage = () => {
 
   useEffect(() => {
     emptyCart();
-    const makeRequest = () => {
+    const makeRequest = async () => {
       try {
+        await fetch(`https://foodyfaisal.evils.in/api/confirm/${payment_intent}`, {
+          method: "PUT"
+        });
         setTimeout(() => {
           router.push("/orders");
         }, 2000);

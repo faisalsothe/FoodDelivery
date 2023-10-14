@@ -18,28 +18,25 @@ const DeleteButton = ({ id }: { id: string }) => {
     return;
   }
 
-  const handleDelete = () => {
-    const res = {
-      id: 1,
-      title: "Sicilian",
-      desc: "Ignite your taste buds with a fiery combination of spicy pepperoni, jalapeños, crushed red pepper flakes, and melted mozzarella cheese, delivering a kick with every bite.",
-      img: "/temporary/p1.png",
-      price: 24.9,
-      options: [
-        {
-          title: "Small",
-          additionalPrice: 0,
-        },
-        {
-          title: "Medium",
-          additionalPrice: 4,
-        },
-        {
-          title: "Large",
-          additionalPrice: 6,
-        },
-      ],
-    };
+  const handleDelete = async () => {
+    const res = await fetch(`https://foodyfaisal.evils.in/api/products/${id}`, {
+      method: "DELETE",
+    });
+
+    if (res.status === 200) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Product Deleted Successfully!!',
+        footer: '<a href="">Wefel.</a>'
+      })
+      setTimeout(()=>{
+        router.push("/menu");
+      },2000);
+    } else {
+      const data = await res.json();
+      toast.error(data.message);
+    }
   };
 
   return (

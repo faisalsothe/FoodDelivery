@@ -17,16 +17,13 @@ const PayPage = ({ params }: { params: { id: string } }) => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res =
-        {
-          id: 3,
-          clientSecret: "pizzas",
-          title: "Cheesy Pizzas",
-          desc: "Pizza Paradise: Irresistible slices, mouthwatering toppings, and cheesy perfection.",
-          img: "/temporary/m3.png",
-          color: "white",
-        }
-        const data = await res;
+        const res = await fetch(
+          `https://foodyfaisal.evils.in/api/create-intent/${id}`,
+          {
+            method: "POST",
+          }
+        );
+        const data = await res.json();
         setClientSecret(data.clientSecret);
       } catch (err) {
         console.log(err);
