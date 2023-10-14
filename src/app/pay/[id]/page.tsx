@@ -1,9 +1,9 @@
 "use client";
 
 import CheckoutForm from "@/components/CheckoutForm";
-import { Elements } from "@stripe/react-stripe-js";
-import { StripeElementsOptions, loadStripe } from "@stripe/stripe-js";
-import { Suspense, useEffect, useState } from "react";
+import {Elements } from "@stripe/react-stripe-js";
+import {StripeElementsOptions, loadStripe } from "@stripe/stripe-js";
+import {useEffect, useState } from "react";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -49,9 +49,7 @@ const PayPage = ({ params }: { params: { id: string } }) => {
         <p>Loading...</p>
       ) : (
         <Elements options={options} key={clientSecret} stripe={stripePromise}>
-          <Suspense>
           <CheckoutForm />
-          </Suspense>
         </Elements>
       )}
     </div>
