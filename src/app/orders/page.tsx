@@ -23,14 +23,14 @@ const OrdersPage = () => {
     
     queryKey: ["orders"],
     queryFn: () =>
-      fetch("http://localhost:3000/api/orders").then((res) => res.json()),
+      fetch("https://foodyfaisal.evils.in/api/orders").then((res) => res.json()),
   });
   
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: ({ id, status }: { id: string; status: string }) => {
-      return fetch(`http://localhost:3000/api/orders/${id}`, {
+      return fetch(`https://foodyfaisal.evils.in/api/orders/${id}`, {
         method:"PUT",
         headers: {
           "Content-Type": "application/json",
