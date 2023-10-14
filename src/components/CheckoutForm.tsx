@@ -78,10 +78,7 @@ const CheckoutForm = () => {
   };
 
   return (
-    <div>
-      {isLoading ? (
-      <p>Loading...</p>
-        ) : (<form
+    <form
       id="payment-form"
       onSubmit={handleSubmit}
       className="min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-15rem)] p-4 lg:px-20 xl:px-40 flex flex-col gap-8"
@@ -100,8 +97,7 @@ const CheckoutForm = () => {
         </span>
       </button>
       {message && <div id="payment-message">{message}</div>}
-    </form>)}
-    </div>
+    </form>
   );
 };
 
