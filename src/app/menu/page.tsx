@@ -3,21 +3,39 @@ import Link from "next/link";
 import React from "react";
 
 const getData = async ()=>{
-  const res = await fetch("http://localhost:3000/api/categories",{
-    cache:"no-store"
-  })
-
-  if(!res.ok){
-    throw new Error("Failed!");
-    
-  }
-
-  return res.json()
+  const res = [
+    {
+      id: 1,
+      slug: "pastas",
+      title: "Italian Pastas",
+      desc: "Savor the taste of perfection with our exquisite Italian handmade pasta menu.",
+      img: "/temporary/m1.png",
+      color: "white",
+    },
+    {
+      id: 2,
+      slug: "burgers",
+      title: "Juicy Burgers",
+      desc: "Burger Bliss: Juicy patties, bold flavors, and gourmet toppings galore.",
+      img: "/temporary/m2.png",
+      color: "black",
+    },
+    {
+      id: 3,
+      slug: "pizzas",
+      title: "Cheesy Pizzas",
+      desc: "Pizza Paradise: Irresistible slices, mouthwatering toppings, and cheesy perfection.",
+      img: "/temporary/m3.png",
+      color: "white",
+    },
+  ];
+  
+  return res;
 }
 
 const MenuPage = async () => {
 
-  const menu:MenuType = await getData()
+  const menu = await getData()
   return (
     <div className="p-4 lg:px-20 xl:px-40 h-full flex flex-col md:flex-row items-center justify-center">
       {menu.map((category) => (

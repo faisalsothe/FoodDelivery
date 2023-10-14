@@ -1,14 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config) => {
-    // Ignore ECONNREFUSED error during build
-    config.node = {
-      net: 'empty',
-      tls: 'empty',
-      dns: 'empty',
-    };
-    return config;
-  },
   images: {
     domains: ["res.cloudinary.com"],
   },
